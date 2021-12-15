@@ -24,7 +24,7 @@ export const generateTypesDefinitions = async () => {
       outDir,
       baseUrl: projRoot,
       paths: {
-        '@v3-ui/*': ['packages/*'],
+        '@src/*': ['packages/*'],
       },
     },
     tsConfigFilePath: TSCONFIG_PATH,
@@ -32,7 +32,7 @@ export const generateTypesDefinitions = async () => {
   })
 
   const filePaths = excludeFiles(
-    await glob(['**/*.{js,ts,vue}', '!v3-ui/**/*'], {
+    await glob(['**/*.{js,ts,vue}', '!src/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,

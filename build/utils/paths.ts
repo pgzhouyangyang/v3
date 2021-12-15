@@ -7,14 +7,14 @@ export const themeRoot = resolve(pkgRoot, 'theme-chalk')
 export const hookRoot = resolve(pkgRoot, 'hooks')
 export const localeRoot = resolve(pkgRoot, 'locale')
 export const directiveRoot = resolve(pkgRoot, 'directives')
-export const epRoot = resolve(pkgRoot, 'v3-ui')
+export const epRoot = resolve(pkgRoot, 'src')
 export const utilRoot = resolve(pkgRoot, 'utils')
 export const docRoot = resolve(projRoot, 'docs')
 
 /** dist */
 export const buildOutput = resolve(projRoot, 'dist')
-/** dist/v3-ui */
-export const epOutput = resolve(buildOutput, 'v3-ui')
+/** dist/zyy-v3-ui */
+export const epOutput = resolve(buildOutput, 'zyy-v3-ui')
 
 export const projPackage = resolve(projRoot, 'package.json')
 export const compPackage = resolve(compRoot, 'package.json')

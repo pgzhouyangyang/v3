@@ -10,7 +10,7 @@ const OUTPUT_DIR = resolve(__dirname, "../dist");
 
 const IGNORE_DIRS = ['style']
 
-const ENTRY_FILE_NAME = "v3-ui.ts"
+const ENTRY_FILE_NAME = "zyy-v3-ui.ts"
 
 const ENTRY_FILE = resolve(ENTRY_DIR, ENTRY_FILE_NAME)
 

@@ -8,8 +8,8 @@ export default defineConfig({
   // build: {
   //   lib: {
   //     entry: path.resolve(__dirname, "packages/components/index.ts"),
-  //     name: "v3-ui",
-  //     fileName: 'v3-ui',
+  //     name: "zyy-v3-ui",
+  //     fileName: 'zyy-v3-ui',
   //     formats: ['es', 'umd']
   //   },
   //   rollupOptions: {

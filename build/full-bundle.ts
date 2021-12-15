@@ -7,7 +7,7 @@ import esbuild from 'rollup-plugin-esbuild'
 import replace from '@rollup/plugin-replace'
 import filesize from 'rollup-plugin-filesize'
 import { parallel } from 'gulp'
-import { version } from '../packages/v3-ui/version'
+import { version } from '../packages/src/version'
 import { alias } from './plugins/alias'
 import { epRoot, epOutput } from './utils/paths'
 import { generateExternal, writeBundles } from './utils/rollup'
@@ -42,13 +42,13 @@ export const buildFull = (minify: boolean) => async () => {
     ],
     external: await generateExternal({ full: true }),
   })
-  const banner = `/*! V3-UI v${version} */\n`
+  const banner = `/*! zyy-v3-ui v${version} */\n`
   await writeBundles(bundle, [
     {
       format: 'umd',
       file: path.resolve(epOutput, `dist/index.full${minify ? '.min' : ''}.js`),
       exports: 'named',
-      name: 'ElementPlus',
+      name: 'V3UI',
       globals: {
         vue: 'Vue',
       },

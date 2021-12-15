@@ -17,11 +17,6 @@ import type { Module } from './build-info'
 const runTask = (name: string) => withTaskName(name, () => run(`pnpm run build ${name}`))
 
 
-export * from "./modules"
-
-export * from './full-bundle'
-
-export * from "./types-definitions"
 
 
 export const copyFullStyle = async () => {
@@ -55,9 +50,23 @@ export const copyFiles = () =>
         ),
     ])
 
+
+export const createOutput = ()=> {
+    return mkdir(epOutput, { recursive: true })
+}
+
+
+
+export * from "./modules"
+
+export * from './full-bundle'
+
+export * from "./types-definitions"
+
+
 export default series(
     withTaskName('clean', () => run('pnpm run clean:dist')),
-    withTaskName('createOutput', () => mkdir(epOutput, { recursive: true })),
+    withTaskName('createOutput', createOutput),
     parallel(
         runTask("buildModules"),
         runTask('buildFullBundle'),

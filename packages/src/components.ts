@@ -1,5 +1,7 @@
 
-import { Plugin } from "vue";
+import type { Plugin } from "vue";
+
+
 import {V3Ellipsis} from "../components/ellipsis"
 
 import {V3Timer} from "../components/timer"

@@ -50,7 +50,7 @@ export const buildModules = async () => {
         exports: module === 'cjs' ? 'named' : undefined,
         preserveModules: true,
         preserveModulesRoot: epRoot,
-        sourcemap: true,
+        // sourcemap: true,
         entryFileNames: `[name].${config.ext}`,
       }
     })

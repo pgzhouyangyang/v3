@@ -53,9 +53,9 @@ const buildAll = async () => {
       build: {
         rollupOptions,
         lib: {
-          entry: path.resolve(ENTRY_DIR, "v3-ui.ts"),
-          name: "v3-ui",
-          fileName: "v3-ui",
+          entry: path.resolve(ENTRY_DIR, "zyy-v3-ui.ts"),
+          name: "zyy-v3-ui",
+          fileName: "zyy-v3-ui",
           formats: ["es", "umd"],
         },
         outDir: OUTPUT_DIR,

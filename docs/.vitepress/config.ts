@@ -2,7 +2,7 @@
 import {demoBlockPlugin} from "vitepress-theme-demoblock"
 import sidebar from "./config/sidebar"
 export default {
-	title: 'v3-ui',
+	title: 'zyy-v3-ui',
 	description: '快速开发中后台项目的 UI 组件库',
 
 	themeConfig: {

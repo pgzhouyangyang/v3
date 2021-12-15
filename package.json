@@ -1,12 +1,12 @@
 {
-  "name": "v3-ui",
-  "version": "1.0.0",
+  "name": "zyy-v3-ui",
+  "version": "1.0.1",
   "description": "A Component Library for Vue 3",
   "files": [
-    "dist/v3-ui"
+    "dist/zyy-v3-ui"
   ],
   "workspaces": [
-    "packages/*"
+    "packages/**/*"
   ],
   "exports": {
     ".": {
@@ -20,6 +20,8 @@
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "style": "dist/index.css",
+  "unpkg": "dist/index.full.js",
+  "jsdelivr": "dist/index.full.js",
   "scripts": {
     "dev": "vite serve ./examples --config vite.config.ts",
     "dev:docs": "vitepress dev docs",
@@ -47,7 +49,11 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/gulp": "^4.0.9",
     "@types/node": "^16.11.12",
+    "@zyy-v3-ui/components": "./packages/components",
+    "@zyy-v3-ui/theme-chalk": "./packages/theme-chalk",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vue/compiler-sfc": "^3.2.26",
     "@vueuse/core": "^7.3.0",
@@ -73,8 +79,8 @@
     "vite": "^2.6.4",
     "vitepress": "^0.20.1",
     "vitepress-theme-demoblock": "^1.4.2",
-    "vue-tsc": "^0.3.0",
     "vue": "^3.2.0",
-    "v3-ui": "./dist/v3-ui"
+    "vue-tsc": "^0.3.0",
+    "zyy-v3-ui": "^1.0.0"
   }
 }

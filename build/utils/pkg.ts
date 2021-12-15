@@ -28,7 +28,7 @@ export const getPackageDependencies = (pkgPath: string): string[] => {
 export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
   return (id: string) => {
-    id = id.replace(new RegExp(`${EP_PREFIX}/theme-chalk`, "g"), 'v3-ui/theme-chalk') 
+    id = id.replace(new RegExp(`${EP_PREFIX}/theme-chalk`, "g"), 'zyy-v3-ui/theme-chalk') 
     id = id.replace(new RegExp(`${EP_PREFIX}/`, 'g'), `${config.bundle.path}/`)
     return id
   }
