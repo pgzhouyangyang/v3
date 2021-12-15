@@ -1,0 +1,80 @@
+{
+  "name": "v3-ui",
+  "version": "1.0.0",
+  "description": "A Component Library for Vue 3",
+  "files": [
+    "dist/v3-ui"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.mjs"
+    },
+    "./es": "./es/index.mjs",
+    "./lib": "./lib/index.js",
+    "./*": "./*"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "style": "dist/index.css",
+  "scripts": {
+    "dev": "vite serve ./examples --config vite.config.ts",
+    "dev:docs": "vitepress dev docs",
+    "build:docs": "vitepress build docs",
+    "serve:docs": "vitepress serve docs",
+    "clean": "pnpm run clean:dist && pnpm run clean -r --stream",
+    "clean:dist": "rimraf dist",
+    "preinstall": "npx only-allow pnpm",
+    "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "element-plus": "^1.2.0-beta.6"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.16.4",
+    "@babel/traverse": "^7.16.3",
+    "@pnpm/find-workspace-packages": "^3.1.28",
+    "@pnpm/logger": "^4.0.0",
+    "@pnpm/types": "^7.6.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/node": "^16.11.12",
+    "@vitejs/plugin-vue": "^1.9.3",
+    "@vue/compiler-sfc": "^3.2.26",
+    "@vueuse/core": "^7.3.0",
+    "chalk": "4.1.2",
+    "fast-glob": "^3.2.7",
+    "filesize": "^8.0.6",
+    "fs-extra": "^10.0.0",
+    "gulp": "^4.0.2",
+    "lodash": "^4.17.21",
+    "rimraf": "^3.0.2",
+    "rollup": "2.61.1",
+    "rollup-plugin-css-only": "3.1.0",
+    "rollup-plugin-esbuild": "^4.7.2",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.44.0",
+    "sucrase": "^3.20.3",
+    "ts-morph": "^13.0.2",
+    "ts-node": "^10.4.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.4",
+    "vitepress": "^0.20.1",
+    "vitepress-theme-demoblock": "^1.4.2",
+    "vue-tsc": "^0.3.0",
+    "vue": "^3.2.0",
+    "v3-ui": "./dist/v3-ui"
+  }
+}

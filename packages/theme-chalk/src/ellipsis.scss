@@ -1,0 +1,28 @@
+
+.v3-ellipsis {
+    overflow: hidden;
+}
+.v3-ellipsis:not(.v3-ellipsis--line-clamp) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.v3-ellipsis.v3-ellipsis--line-clamp {
+    display: -webkit-inline-box;
+    -webkit-box-orient: vertical;
+}
+
+.v3-ellipsis__max_height.v3-ellipsis__fold {
+    position: relative;
+    &::after {
+        background: linear-gradient(rgba(255, 255, 255, 0.2) 25px, #fff);
+        content: " ";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 40px;
+        transition-duration: 0.1s;
+        transition-property: opacity;
+    }
+}

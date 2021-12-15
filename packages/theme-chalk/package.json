@@ -1,0 +1,19 @@
+{
+  "name": "@v3-ui/theme-chalk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.css",
+  "style": "index.css",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "gulp --require sucrase/register/ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0"
+  }
+}
