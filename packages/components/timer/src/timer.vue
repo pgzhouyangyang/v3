@@ -54,6 +54,13 @@
     onBeforeUnmount(()=> {
         clear()
     })
+
+
+    defineExpose({
+        start,
+        pause,
+        clear
+    })
 </script>
 <script lang="ts">  
     import {defineComponent} from "vue"

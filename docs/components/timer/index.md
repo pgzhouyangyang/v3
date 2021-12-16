@@ -45,7 +45,7 @@
 :::demo `auto-start`设置为fasle， 可使用 `start-time` 指定计时开始时间。
 ```vue
 <template>
-   <v3-timer ref="timer" :auto-start="false" start-time="2021-10-29"></v3-timer>
+   <v3-timer ref="timerRef" :auto-start="false" start-time="2021-10-29"></v3-timer>
      <div style="margin-top: 20px">
             <el-button @click="start">开始</el-button>
             <el-button @click="pause">暂停</el-button>
@@ -54,19 +54,32 @@
 </template>
 
 <script>
-  export default {
-      methods: {
-          start() {
-              this.$refs.timer.start()
-          },
-          pause() {
-              this.$refs.timer.pause() 
-          },
-           clear() {
-              this.$refs.timer.clear() 
-          }
+import { defineComponent, ref } from 'vue'
+  export default defineComponent({
+      setup() {
+        
+        const timerRef = ref(null)
+
+        const start = ()=> {
+            timerRef.value.start()
+        }
+
+        const pause = ()=> {
+            timerRef.value.pause()
+        }
+
+        const clear = ()=> {
+            timerRef.value.clear()
+        }
+
+        return {
+            timerRef,
+            start,
+            pause,
+            clear
+        }
       }
-  }
+  })
 </script>
 ```
 :::

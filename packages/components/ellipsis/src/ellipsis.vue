@@ -19,11 +19,12 @@
 </template>
 
 <script setup lang="ts">
+
+    import {ElTooltip} from "element-plus"
+
     import { computed, reactive, ref } from 'vue';
     import {parseStyleSize} from "../../../utils/utils"
     import type { StyleValue } from "../../../utils/types"
-
-
 
     const expanded = ref<boolean>(false)
 

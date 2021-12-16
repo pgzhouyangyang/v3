@@ -1,0 +1,14 @@
+{
+  "name": "zyy-v3-ui-resolver",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build --config vite.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
