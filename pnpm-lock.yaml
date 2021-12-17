@@ -12,6 +12,7 @@ specifiers:
   '@rollup/plugin-typescript': ^8.3.0
   '@types/fs-extra': ^9.0.13
   '@types/gulp': ^4.0.9
+  '@types/lodash': ^4.14.178
   '@types/node': ^16.11.12
   '@vitejs/plugin-vue': ^1.9.3
   '@vitejs/plugin-vue-jsx': ^1.3.2
@@ -48,7 +49,7 @@ specifiers:
   vitepress-theme-demoblock: ^1.4.2
   vue: ^3.2.0
   vue-tsc: ^0.3.0
-  zyy-v3-ui: ^2.0.8
+  zyy-v3-ui: ^2.0.10
   zyy-v3-ui-resolver: ^1.0.1
 
 dependencies:
@@ -67,6 +68,7 @@ devDependencies:
   '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/8.3.0_477267584ddb2253e74d0b949bc9446a
   '@types/fs-extra': registry.npmmirror.com/@types/fs-extra/9.0.13
   '@types/gulp': registry.npmmirror.com/@types/gulp/4.0.9
+  '@types/lodash': 4.14.178
   '@types/node': registry.npmmirror.com/@types/node/16.11.12
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/1.10.1_vite@2.6.14
   '@vitejs/plugin-vue-jsx': 1.3.2
@@ -101,7 +103,7 @@ devDependencies:
   vitepress-theme-demoblock: registry.npmmirror.com/vitepress-theme-demoblock/1.4.2_sass@1.44.0
   vue: registry.npmmirror.com/vue/3.2.23
   vue-tsc: registry.npmmirror.com/vue-tsc/0.3.0_typescript@4.5.2
-  zyy-v3-ui: 2.0.8_vue@3.2.23
+  zyy-v3-ui: 2.0.10_vue@3.2.23
   zyy-v3-ui-resolver: 1.0.1
 
 packages:
@@ -463,6 +465,10 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@types/lodash/4.14.178:
+    resolution: {integrity: sha512-0d5Wd09ItQWH1qFbEyQ7oTQ3GZrMfth5JkbN3EvTKLXcHLRDSXeLnlvlOn0wvxVIwK5o2M8JzP/OWz7T3NRsbw==}
     dev: true
 
   /@types/throttle-debounce/2.1.0:
@@ -1729,8 +1735,8 @@ packages:
     resolution: {integrity: sha512-EpAXelvwwUO3ZtwyQBiBhCr6hO6opX/jUycNyd+kUBaESbKzD9jdY+1Dlof3ZoOHK4pv6ulS2IPFc1KbBdQe1Q==}
     dev: true
 
-  /zyy-v3-ui/2.0.8_vue@3.2.23:
-    resolution: {integrity: sha512-F77Eilp9e8NmLtEVEd1hEbSU5BIA+4/l1twX3ySR8WQBLM6hadw7IYRaeoQRvSuIM01+idY0IqftSSPvco/VeA==}
+  /zyy-v3-ui/2.0.10_vue@3.2.23:
+    resolution: {integrity: sha512-tdP7aLHY+EWxNGgA3hhYXY9eZLN3Hqz9VRmmH4TAwMaYtIiotxEiwSjkL5c/5g0v4QYphg8yjqJsvBWZ7ujGrA==}
     requiresBuild: true
     peerDependencies:
       vue: ^3.2.0

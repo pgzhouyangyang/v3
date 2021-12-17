@@ -1,8 +1,11 @@
 
 import {demoBlockPlugin} from "vitepress-theme-demoblock"
 import sidebar from "./config/sidebar"
+
+import {EP_PKG} from "../../build/utils/constants"
+
 export default {
-	title: 'zyy-v3-ui',
+	title: EP_PKG,
 	description: '快速开发中后台项目的 UI 组件库',
 
 	themeConfig: {

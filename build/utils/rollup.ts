@@ -3,11 +3,13 @@ import { getPackageDependencies } from './pkg'
 
 import type { OutputOptions, RollupBuild } from 'rollup'
 
+import {EP_PKG} from "./constants"
+
 export const generateExternal = async (options: { full: boolean }) => {
   return (id: string) => {
     const packages: string[] = ['vue']
     if (!options.full) {
-      packages.push('zyy-v3-ui/theme-chalk')
+      packages.push(`${EP_PKG}/theme-chalk`)
       // dependencies
       packages.push("@vue", ...getPackageDependencies(epPackage))
     }

@@ -1,6 +1,6 @@
 import findWorkspacePackages from '@pnpm/find-workspace-packages'
 import { buildConfig } from '../build-info'
-import { EP_PREFIX } from './constants'
+import { EP_PKG, EP_PREFIX } from './constants'
 import { pkgRoot, projRoot } from './paths'
 import type { Module } from '../build-info'
 import type { ProjectManifest } from '@pnpm/types'
@@ -28,7 +28,7 @@ export const getPackageDependencies = (pkgPath: string): string[] => {
 export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
   return (id: string) => {
-    id = id.replace(new RegExp(`${EP_PREFIX}/theme-chalk`, "g"), 'zyy-v3-ui/theme-chalk') 
+    id = id.replace(new RegExp(`${EP_PREFIX}/theme-chalk`, "g"), `${EP_PKG}/theme-chalk`) 
     id = id.replace(new RegExp(`${EP_PREFIX}/`, 'g'), `${config.bundle.path}/`)
     return id
   }

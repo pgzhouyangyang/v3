@@ -4,8 +4,8 @@ import Timer from "./src/timer.vue"
 
 export const V3Timer = withInstall(Timer)
 
-
-V3Timer.title = "计时器 Timer"
-V3Timer.category = "通用"
-
-export default V3Timer
+export default {
+    install: ()=> V3Timer.install,
+    title: "计时器 Timer",
+    category: "通用"
+}

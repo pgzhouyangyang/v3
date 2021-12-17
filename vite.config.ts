@@ -2,11 +2,11 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 
-import AutoImport from 'unplugin-auto-import/vite'
+// import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
-import { Resolver } from "zyy-v3-ui-resolver"
+// import { Resolver } from "zyy-v3-ui-resolver"
 
 
 interface ResolverOptions {
@@ -48,7 +48,6 @@ export default defineConfig({
 	// root:  path.resolve(__dirname, "./examples"),
 	plugins: [
 		vue(),
-
 		// AutoImport({
 		//   resolvers: [
 		// 	ElementPlusResolver()
@@ -58,7 +57,6 @@ export default defineConfig({
 			deep: true,
 			resolvers: [
 				(name) => {
-					console.log(name)
 					let path = "";
 					let prefix = ""
 					if (name.startsWith('V3')) {

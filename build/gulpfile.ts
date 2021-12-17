@@ -63,11 +63,17 @@ export * from './full-bundle'
 
 export * from "./types-definitions"
 
+export * from "./vitepressSidebar"
+
+
+export * from "./createEntry"
 
 export default series(
     withTaskName('clean', () => run('pnpm run clean:dist')),
     withTaskName('createOutput', createOutput),
+    runTask("createEntry"),
     parallel(
+        runTask("createVitepressSidebar"),
         runTask("buildModules"),
         runTask('buildFullBundle'),
         runTask('generateTypesDefinitions'),

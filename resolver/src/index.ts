@@ -10,6 +10,7 @@ type ComponentResolver = {
     resolve: (name: string)=> any
 }
 
+import {EP_PKG} from "../../build/utils/constants"
 
 export interface ResolverOptions {
     /**
@@ -74,7 +75,7 @@ export function Resolver(
             ssr: false,
             importStyle: 'css',
             directives: true,
-            pkgname: "zyy-v3-ui",
+            pkgname: EP_PKG,
             ...options,
         }
         return optionsResolved

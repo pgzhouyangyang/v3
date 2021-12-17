@@ -14,6 +14,9 @@
 	<el-button>222</el-button>
 	<el-alert title="success alert" type="success" />
 	
+	<!-- <el-tooltip>
+		<el-button>eee</el-button>
+	</el-tooltip> -->
 	
 </template>
 

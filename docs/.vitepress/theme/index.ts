@@ -3,7 +3,7 @@ import DefaultTheme from 'vitepress/dist/client/theme-default'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
 import v3Ui from "../../../packages/src"
-import "zyy-v3-ui/dist/index.css"
+import "../../../packages/theme-chalk/src/index.scss"
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import "./index.scss"
