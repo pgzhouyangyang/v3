@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-
+import vueJsx from '@vitejs/plugin-vue-jsx';
 // import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 // import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -48,37 +48,38 @@ export default defineConfig({
 	// root:  path.resolve(__dirname, "./examples"),
 	plugins: [
 		vue(),
+		vueJsx(),
 		// AutoImport({
 		//   resolvers: [
 		// 	ElementPlusResolver()
 		//   ],
 		// }),
-		Components({
-			deep: true,
-			resolvers: [
-				(name) => {
-					let path = "";
-					let prefix = ""
-					if (name.startsWith('V3')) {
-						path = 'zyy-v3-ui'
-						prefix = "v3"
-					} else if (name.startsWith('El')) {
-						path = 'element-plus'
-						prefix = "el"
-					}
-					const partialName = kebabCase(name.slice(2))
-					return {
-						importName: name,
-						path,
-						sideEffects: getSideEffects(partialName, {
-							pkgname: path,
-							prefix,
-							ssr: false,
-							importStyle: 'css',
-						}),
-					}
-				}
-			],
-		})
+		// Components({
+		// 	deep: true,
+		// 	resolvers: [
+		// 		(name) => {
+		// 			let path = "";
+		// 			let prefix = ""
+		// 			if (name.startsWith('V3')) {
+		// 				path = 'zyy-v3-ui'
+		// 				prefix = "v3"
+		// 			} else if (name.startsWith('El')) {
+		// 				path = 'element-plus'
+		// 				prefix = "el"
+		// 			}
+		// 			const partialName = kebabCase(name.slice(2))
+		// 			return {
+		// 				importName: name,
+		// 				path,
+		// 				sideEffects: getSideEffects(partialName, {
+		// 					pkgname: path,
+		// 					prefix,
+		// 					ssr: false,
+		// 					importStyle: 'css',
+		// 				}),
+		// 			}
+		// 		}
+		// 	],
+		// })
 	]
 })

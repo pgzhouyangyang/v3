@@ -8,8 +8,8 @@ export default {
 	    "text": "通用",
 	    "children": [
 	      {
-	        "text": "自定义",
-	        "link": "/components/cus/"
+	        "text": "抽屉 Drawer",
+	        "link": "/components/drawer/"
 	      },
 	      {
 	        "text": "文本省略 Ellipsis",

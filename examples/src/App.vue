@@ -1,23 +1,27 @@
 <template>
-	<v3-ellipsis
-		:line-clamp="2"
-		:tooltip="{ placement: 'bottom' }"
-		style="max-width: 240px"
-	>
-		带弹出提示基本的单行省略;带弹出提示基本的单行省略;带弹出提示基本的单行省略;带弹出提示基本的单行省略;</v3-ellipsis
-	>
-
-	<v3-timer></v3-timer>
-	<el-affix :offset="120">
-		<el-button type="primary">Offset top 120px</el-button>
-	</el-affix>
-	<el-button>222</el-button>
-	<el-alert title="success alert" type="success" />
-	
-	<!-- <el-tooltip>
-		<el-button>eee</el-button>
-	</el-tooltip> -->
-	
+  <el-button @click="handleClick">click</el-button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+
+import { inject } from "vue";
+import Modal from "./views/modal.vue";
+
+import { ModalService } from "../../packages/src";
+const modalservice = inject(ModalService.token) as ModalService;
+const openModal = modalservice.create(Modal);
+
+const handleClick = () => {
+  openModal.open({
+	  props: {
+		title: "标题1",
+		width: "80%"
+	  },
+	  onOk: async (res: any) => {
+		  
+		  return true
+	  }
+  });
+};
+</script>
