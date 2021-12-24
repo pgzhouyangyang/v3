@@ -8,6 +8,7 @@ import { ElDrawer, ElButton, ElScrollbar } from "element-plus"
 export default defineComponent({
   name: "V3Drawer",
   props: drawerProps,
+  emits: ["update:modelValue"],
   setup(props, ctx) {
 
     const $onOk = ref<any>(null)
@@ -27,6 +28,9 @@ export default defineComponent({
     watch(() => props.fullscreen, (value) => {
       innerFullscreen.value = value
     })
+    watch(()=> props.modelValue, value=> {
+			innerVisible.value = value
+		})
 
     const open = () => {
       // $onOpend 是外部注入的方法
@@ -63,6 +67,8 @@ export default defineComponent({
       }
       // $onOk 是外部注入的方法， res 将会作为 openModal 方法的结果返回
       if ($onClose.value) return $onClose.value(res);
+
+      ctx.emit("update:modelValue", false)
     }
 
     const confirm = async () => {
@@ -74,6 +80,8 @@ export default defineComponent({
       }
       // $onOk 是外部注入的方法， res 将会作为 openModal 方法的结果返回
       if ($onOk.value) return $onOk.value(res);
+
+      ctx.emit("update:modelValue", false)
     }
 
 
@@ -86,6 +94,7 @@ export default defineComponent({
       }
       // $onCancel 是外部注入的方法
       if ($onCancel.value) return $onCancel.value(res);
+      ctx.emit("update:modelValue", false)
     }
 
 

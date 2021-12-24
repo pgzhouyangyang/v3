@@ -3,15 +3,16 @@ import {commonModalOptions} from "./modal-types"
 
 export abstract class CommonModalService<Options> {
     constructor(public anchorContainer: HTMLElement, public modal: any){}
-    component: any;
+    static install(){};
+    root: any;
     app: any;
-    create(component) {
-        this.component = component
+    create(root) {
+        this.root = root
         return this
     }
     open(data: commonModalOptions<Options>) {
-        const { props, onOk, onCancel, onOpen, onOpened, onClose, parent } = data;
-        const app = this.app = createApp(this.component, props)
+        const { props, $onOk, $onCancel, $onOpen, $onOpened, $onClose, parent } = data;
+        const app = this.app = createApp(this.root, props)
         const vm = app.component(this.modal.name, this.modal).mount(this.anchorContainer)
         const ref = vm.$refs.modal as any
         if(!ref) {
@@ -21,8 +22,8 @@ export abstract class CommonModalService<Options> {
         return new Promise((resolve, reject)=> {
             let res = false;
             ref.$onOk = async (data) => {
-                if (onOk) {
-                    const res = await onOk(data);
+                if ($onOk) {
+                    const res = await $onOk(data);
                     if (res === false) return;
                 }
                 
@@ -30,8 +31,8 @@ export abstract class CommonModalService<Options> {
                 res = data || true;
             };
             ref.$onCancel = async (data) => {
-                if (onCancel) {
-                    const res = await onCancel(data);
+                if ($onCancel) {
+                    const res = await $onCancel(data);
                     if (res === false) return;
                 }
 
@@ -39,19 +40,19 @@ export abstract class CommonModalService<Options> {
                 res = false;
             };
             ref.$onOpened = ()=> {
-                if (onOpened) {
-                    return onOpened()
+                if ($onOpened) {
+                    return $onOpened()
                 }
             };
             // 打开时事件
             ref.$onOpen= ()=> {
-                if (onOpen) {
-                    return onOpen()
+                if ($onOpen) {
+                    return $onOpen()
                 }
             };
             ref.$onClose = async (data) => {
-                if (onClose) {
-                    const res = await onClose(data);
+                if ($onClose) {
+                    const res = await $onClose(data);
                     if (res === false) return;
                 }
                 ref.innerVisible = false;

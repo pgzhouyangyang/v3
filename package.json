@@ -30,6 +30,7 @@
     "preinstall": "npx only-allow pnpm",
     "update:version": "sucrase-node scripts/update-version.ts",
     "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts",
+    "build:theme": "pnpm run build -C packages/theme-chalk",
     "pub": "sh scripts/publish.sh",
     "build:resolver": "pnpm run build -C resolver"
   },

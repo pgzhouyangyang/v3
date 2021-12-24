@@ -35,6 +35,7 @@ mkdir -p "$DIRNAME"
 mkdir -p "$DIRNAME/src"
 mkdir -p "$DIRNAME/style"
 mkdir -p "$DIRNAME/__tests__"
+touch  "$FILE_PATH/theme-chalk/src/$lName.scss"
 
 
 cat > $DIRNAME/style/css.ts <<EOF

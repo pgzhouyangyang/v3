@@ -3,7 +3,6 @@ import type { DefineComponent, ExtractPropTypes, PropType, VNode } from "vue"
 
 export const commonModalProps = {
     modelValue: Boolean,
-    fullscreenIcon: Boolean,
     confirmText: {
         type: String,
         default: "确 定"
@@ -39,17 +38,19 @@ export const commonModalProps = {
 
 export interface commonModalOptions<Props> {
     props?: Partial<Props>,
-    onOk?: Function,
-    onCancel?: Function
-    onOpen?: Function
-    onOpened?: Function
-    onClose?: Function
-    parent?: DefineComponent
+    content?: any,
+    $onOk?: Function,
+    $onCancel?: Function
+    $onOpen?: Function
+    $onOpened?: Function
+    $onClose?: Function
+    parent?: DefineComponent,
 }
 
 export const modalProps = {
     ...dialogProps,
-   ...commonModalProps
+   ...commonModalProps,
+   fullscreenIcon: Boolean,
 } as const
 
 

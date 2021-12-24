@@ -2,9 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 import vueJsx from '@vitejs/plugin-vue-jsx';
-// import AutoImport from 'unplugin-auto-import/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // import { Resolver } from "zyy-v3-ui-resolver"
 
@@ -50,36 +50,37 @@ export default defineConfig({
 		vue(),
 		vueJsx(),
 		// AutoImport({
-		//   resolvers: [
-		// 	ElementPlusResolver()
-		//   ],
-		// }),
-		// Components({
-		// 	deep: true,
 		// 	resolvers: [
-		// 		(name) => {
-		// 			let path = "";
-		// 			let prefix = ""
-		// 			if (name.startsWith('V3')) {
-		// 				path = 'zyy-v3-ui'
-		// 				prefix = "v3"
-		// 			} else if (name.startsWith('El')) {
-		// 				path = 'element-plus'
-		// 				prefix = "el"
-		// 			}
-		// 			const partialName = kebabCase(name.slice(2))
-		// 			return {
-		// 				importName: name,
-		// 				path,
-		// 				sideEffects: getSideEffects(partialName, {
-		// 					pkgname: path,
-		// 					prefix,
-		// 					ssr: false,
-		// 					importStyle: 'css',
-		// 				}),
-		// 			}
-		// 		}
+		// 		ElementPlusResolver()
 		// 	],
-		// })
+		// }),
+		Components({
+			deep: true,
+			resolvers: [
+				ElementPlusResolver()
+				// (name) => {
+				// 	let path = "";
+				// 	let prefix = ""
+				// 	if (name.startsWith('V3')) {
+				// 		path = 'zyy-v3-ui'
+				// 		prefix = "v3"
+				// 	} else if (name.startsWith('El')) {
+				// 		path = 'element-plus'
+				// 		prefix = "el"
+				// 	}
+				// 	const partialName = kebabCase(name.slice(2))
+				// 	return {
+				// 		importName: name,
+				// 		path,
+				// 		sideEffects: getSideEffects(partialName, {
+				// 			pkgname: path,
+				// 			prefix,
+				// 			ssr: false,
+				// 			importStyle: 'css',
+				// 		}),
+				// 	}
+				// }
+			],
+		})
 	]
 })

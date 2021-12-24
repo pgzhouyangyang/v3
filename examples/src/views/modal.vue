@@ -1,14 +1,29 @@
 <template>
-    <v3-modal ref="modal" :onOk="onOk">
-      <div>v3-modal</div>
-    </v3-modal>
+	<v3-modal ref="modal" :onOk="onOk">
+		<el-form :model="form" >
+			<el-form-item >
+				<el-input v-model="form.username"> </el-input>
+			</el-form-item>
+
+			<el-form-item>
+				<el-input type="password" v-model="form.password"></el-input>
+			</el-form-item>
+		</el-form>
+	</v3-modal>
 </template>
 
 <script lang="ts" setup>
-const props = withDefaults(defineProps(), {});
+import { reactive } from 'vue'
+
+interface IForm {
+	[key: string]: any
+}
+
+const form = reactive<IForm>({
+
+})
 
 const onOk = () => {
-  return false;
-};
-</script>
-<style lang="scss" scoped></style>
+	return false
+}
+</script> 
