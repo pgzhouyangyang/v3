@@ -1,5 +1,5 @@
 
-const VITEPRESS_SIDEBAR_CATEGORY = ['通用']
+const VITEPRESS_SIDEBAR_CATEGORY = ['通用', '反馈组件', '数据展示']
 
 function buildComponentOptions(text, name) {
   return { text, link: `/components/${name}/`}

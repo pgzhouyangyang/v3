@@ -26,7 +26,7 @@ export const V3Modal = {
 export default {
     install: () => V3Modal.install,
     title: "弹出框 Modal",
-    category: "通用"
+    category: "反馈组件"
 }
 
 export * from "./src/modal-types"

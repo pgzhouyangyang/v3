@@ -2,8 +2,8 @@ import type { Plugin } from 'vue'
 import { DrawerService, V3Drawer } from '../components/drawer'
 import { V3Ellipsis } from '../components/ellipsis'
 import { ModalService, V3Modal } from '../components/modal'
+import { V3Table } from '../components/table'
 import { V3Timer } from '../components/timer'
-import { V3Table} from '../components/table'
 
 export default [
 	DrawerService,
@@ -11,6 +11,6 @@ export default [
 	V3Ellipsis,
 	ModalService,
 	V3Modal,
-	V3Timer,
-	V3Table
+	V3Table,
+	V3Timer
 ] as Plugin[]

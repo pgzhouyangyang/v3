@@ -38,8 +38,10 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^0.2.4",
     "dayjs": "^1.10.7",
-    "element-plus": "^1.2.0-beta.6"
+    "element-plus": "^1.2.0-beta.6",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@babel/parser": "^7.16.4",

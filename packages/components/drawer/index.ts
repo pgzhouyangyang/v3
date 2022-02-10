@@ -29,7 +29,7 @@ export const V3Drawer = {
 export default {
     install: ()=> V3Drawer.install,
     title: "抽屉 Drawer",
-    category: "通用"
+    category: "反馈组件"
 }
 
 
