@@ -27,15 +27,19 @@
     "clean": "pnpm run clean:dist && pnpm run clean -r --stream",
     "clean:dist": "rimraf dist",
     "gen": "bash ./scripts/gc.sh",
-    "preinstall": "npx only-allow pnpm",
     "update:version": "sucrase-node scripts/update-version.ts",
     "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts",
     "build:theme": "pnpm run build -C packages/theme-chalk",
     "pub": "sh scripts/publish.sh",
-    "build:resolver": "pnpm run build -C resolver"
+    "build:resolver": "pnpm run build -C resolver",
+    "prepare": "husky install",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --max-warnings 0 && pretty-quick",
+    "lint:fix": "eslint --fix . --ext .vue,.js,.ts,.jsx,.tsx && pretty-quick",
+    "format": "prettier --write .",
+    "preinstall": "npx only-allow pnpm"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.2.25"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.4",
@@ -89,8 +93,22 @@
     "vitepress": "^0.20.1",
     "vitepress-theme-demoblock": "^1.4.2",
     "vue": "^3.2.0",
-    "vue-tsc": "^0.3.0",
-    "zyy-v3-ui": "^2.0.10",
-    "zyy-v3-ui-resolver": "^1.0.1"
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-define-config": "^1.2.5",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": "eslint --fix"
   }
 }

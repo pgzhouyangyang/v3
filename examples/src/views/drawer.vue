@@ -1,25 +1,25 @@
 <template>
-    <v3-drawer ref="modal" :onOpen="onOpen">
-      <div style="height: 2000px;">v3-drawer</div>
-    </v3-drawer>
+  <v3-drawer ref="modal" :on-open="onOpen" :on-ok="onOk">
+    <div style="height: 2000px">v3-drawer</div>
+  </v3-drawer>
 </template>
 
 <script lang="ts" setup>
-
 interface iRequest {
-  name: string,
+  name: string
   age: number
 }
 
+const props = defineProps<iRequest>()
 
-
-const props = withDefaults(defineProps(), {});
+console.log(props)
 
 const onOk = () => {
-  return false;
-};
+  return false
+}
 
-const onOpen = (data: iRequest)=> {
+const onOpen = (data: iRequest) => {
+  console.log(data)
 }
 </script>
 <style lang="scss" scoped></style>

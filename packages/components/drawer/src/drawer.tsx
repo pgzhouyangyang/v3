@@ -1,16 +1,18 @@
+import { defineComponent, ref, watch } from 'vue'
 
-import { defineComponent, ref, watch } from "vue"
-
-import { drawerProps } from "./drawer-types"
-
-import { ElDrawer, ElButton, ElScrollbar } from "element-plus"
+import { ElDrawer, ElButton, ElScrollbar } from 'element-plus'
+import { drawerProps } from './drawer-types'
 
 export default defineComponent({
-  name: "V3Drawer",
+  name: 'V3Drawer',
+  components: {
+    ElDrawer,
+    ElButton,
+    ElScrollbar,
+  },
   props: drawerProps,
-  emits: ["update:modelValue"],
+  emits: ['update:modelValue'],
   setup(props, ctx) {
-
     const $onOk = ref<any>(null)
     const $onCancel = ref<any>(null)
     const $onOpened = ref<any>(null)
@@ -25,91 +27,103 @@ export default defineComponent({
       innerFullscreen.value = !innerFullscreen.value
     }
 
-    watch(() => props.fullscreen, (value) => {
-      innerFullscreen.value = value
-    })
-    watch(()=> props.modelValue, value=> {
-			innerVisible.value = value
-		})
+    watch(
+      () => props.fullscreen,
+      (value) => {
+        innerFullscreen.value = value
+      }
+    )
+    watch(
+      () => props.modelValue,
+      (value) => {
+        innerVisible.value = value
+      }
+    )
 
     const open = () => {
       // $onOpend 是外部注入的方法
-      let data;
+      let data
       if ($onOpen.value) {
-        data = $onOpen.value();
+        data = $onOpen.value()
       }
       if (data && props.onOpen) {
-        props.onOpen(data);
+        props.onOpen(data)
       }
-
-
     }
 
     const opened = () => {
       // $onOpend 是外部注入的方法
-      let data;
+      let data
       if ($onOpened.value) {
-        data = $onOpened.value();
+        data = $onOpened.value()
       }
       if (data && props.onOpened) {
-        props.onOpened(data);
+        props.onOpened(data)
       }
-
     }
 
     const close = async () => {
       // 如果 res 返回最终为 false 将不关闭弹窗
-      let res;
+      let res
       if (props.onClose) {
-
-        res = await props.onClose();
-        if (res === false) return;
+        res = await props.onClose()
+        if (res === false) return
       }
       // $onOk 是外部注入的方法， res 将会作为 openModal 方法的结果返回
-      if ($onClose.value) return $onClose.value(res);
+      if ($onClose.value) return $onClose.value(res)
 
-      ctx.emit("update:modelValue", false)
+      ctx.emit('update:modelValue', false)
     }
 
     const confirm = async () => {
       // 如果 res 返回最终为 false 将不关闭弹窗
-      let res;
+      let res
       if (props.onOk) {
-        res = await props.onOk();
-        if (res === false) return;
+        res = await props.onOk()
+        if (res === false) return
       }
       // $onOk 是外部注入的方法， res 将会作为 openModal 方法的结果返回
-      if ($onOk.value) return $onOk.value(res);
+      if ($onOk.value) return $onOk.value(res)
 
-      ctx.emit("update:modelValue", false)
+      ctx.emit('update:modelValue', false)
     }
-
 
     const cancel = async () => {
       //如果 res 返回最终为 false 将不关闭弹窗
-      let res;
+      let res
       if (props.onCancel) {
-        res = await props.onCancel();
-        if (res === false) return;
+        res = await props.onCancel()
+        if (res === false) return
       }
       // $onCancel 是外部注入的方法
-      if ($onCancel.value) return $onCancel.value(res);
-      ctx.emit("update:modelValue", false)
+      if ($onCancel.value) return $onCancel.value(res)
+      ctx.emit('update:modelValue', false)
     }
-
 
     const closed = () => {
-      if ($closed.value) $closed.value();
+      if ($closed.value) $closed.value()
     }
 
-
-    ctx.expose({ innerVisible, $onOk, $onCancel, $onOpened, $onOpen, $onClose, $closed });
-    return { innerVisible, innerFullscreen, open, opened, close, closed, toggleFullscreen, confirm, cancel }
-  },
-  components: {
-    ElDrawer,
-    ElButton,
-    ElScrollbar
+    ctx.expose({
+      innerVisible,
+      $onOk,
+      $onCancel,
+      $onOpened,
+      $onOpen,
+      $onClose,
+      $closed,
+    })
+    return {
+      innerVisible,
+      innerFullscreen,
+      open,
+      opened,
+      close,
+      closed,
+      toggleFullscreen,
+      confirm,
+      cancel,
+    }
   },
   render() {
     const slots = {} as {
@@ -119,33 +133,45 @@ export default defineComponent({
       slots.title = () => this.$slots.title?.()
     }
     if (this.$slots.descriptions) {
-      slots.descriptions = () => <div class="drawer__descriptions">{this.$slots.descriptions?.()}</div> 
+      slots.descriptions = () => (
+        <div class="drawer__descriptions">{this.$slots.descriptions?.()}</div>
+      )
     }
-    return <el-drawer
-      title={this.title}
-      modelValue={this.innerVisible}
-      append-to-body={true}
-      size={this.width}
-      destroy-on-close={this.destroyOnClose}
-      custom-class={`custom-drawer-class ${this.customClass}`}
-      before-close={this.beforeClose}
-      onClose={this.close}
-      onClosed={this.closed}
-      onOpen={this.open}
-      v-slots={slots}
-    >
-      <el-scrollbar class="drawer__content el-scrollbar__notscrollx">
-        <div class="custom-drawer__body">
-          {this.$slots.default?.()}
-        </div>
+    return (
+      <el-drawer
+        title={this.title}
+        modelValue={this.innerVisible}
+        append-to-body={true}
+        size={this.width}
+        destroy-on-close={this.destroyOnClose}
+        custom-class={`custom-drawer-class ${this.customClass}`}
+        before-close={this.beforeClose}
+        onClose={this.close}
+        onClosed={this.closed}
+        onOpen={this.open}
+        v-slots={slots}
+      >
+        <el-scrollbar class="drawer__content el-scrollbar__notscrollx">
+          <div class="custom-drawer__body">{this.$slots.default?.()}</div>
+        </el-scrollbar>
 
-      </el-scrollbar>
-
-      {this.showFooter ? <div class="drawer__footer">
-        {this.showCancel ? <el-button type={this.cancelType} onClick={this.cancel}>{this.cancelText}</el-button> : ""}
-        <el-button type={this.confirmType} onClick={this.confirm}>{this.confirmText}</el-button>
-      </div> : ""}
-    </el-drawer>
-
-  }
+        {this.showFooter ? (
+          <div class="drawer__footer">
+            {this.showCancel ? (
+              <el-button type={this.cancelType} onClick={this.cancel}>
+                {this.cancelText}
+              </el-button>
+            ) : (
+              ''
+            )}
+            <el-button type={this.confirmType} onClick={this.confirm}>
+              {this.confirmText}
+            </el-button>
+          </div>
+        ) : (
+          ''
+        )}
+      </el-drawer>
+    )
+  },
 })

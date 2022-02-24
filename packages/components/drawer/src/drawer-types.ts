@@ -1,11 +1,12 @@
-import {ExtractPropTypes, DefineComponent} from "vue"
-
-import { commonModalProps, commonModalOptions } from '../../modal/src/modal-types'
 import { drawerProps as edrawerProps } from 'element-plus'
+import { commonModalProps } from '../../modal/src/modal-types'
+import type { ExtractPropTypes } from 'vue'
+
+import type { commonModalOptions } from '../../modal/src/modal-types'
 
 export const drawerProps = {
-    ...edrawerProps,
-    ...commonModalProps,
+  ...edrawerProps,
+  ...commonModalProps,
 } as const
 
 export type DrawerProps = ExtractPropTypes<typeof drawerProps>

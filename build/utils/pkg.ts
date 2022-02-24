@@ -28,7 +28,10 @@ export const getPackageDependencies = (pkgPath: string): string[] => {
 export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
   return (id: string) => {
-    id = id.replace(new RegExp(`${EP_PREFIX}/theme-chalk`, "g"), `${EP_PKG}/theme-chalk`) 
+    id = id.replace(
+      new RegExp(`${EP_PREFIX}/theme-chalk`, 'g'),
+      `${EP_PKG}/theme-chalk`
+    )
     id = id.replace(new RegExp(`${EP_PREFIX}/`, 'g'), `${config.bundle.path}/`)
     return id
   }

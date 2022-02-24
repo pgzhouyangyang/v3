@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import {EP_PKG} from "./constants"
+import { EP_PKG } from './constants'
 export const projRoot = resolve(__dirname, '..', '..')
 export const pkgRoot = resolve(projRoot, 'packages')
 export const compRoot = resolve(pkgRoot, 'components')
@@ -27,13 +27,8 @@ export const epPackage = resolve(projRoot, 'package.json')
 export const utilPackage = resolve(utilRoot, 'package.json')
 export const docPackage = resolve(docRoot, 'package.json')
 
-
 /** docs */
-
 
 export const docsRoot = resolve(__dirname, '../../docs')
 
 export const docsConfig = resolve(docsRoot, '.vitepress/config/sidebar.ts')
-
-
-

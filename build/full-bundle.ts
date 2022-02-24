@@ -14,7 +14,7 @@ import { generateExternal, writeBundles } from './utils/rollup'
 
 import { withTaskName } from './utils/gulp'
 
-import {EP_PKG} from "./utils/constants"
+import { EP_PKG } from './utils/constants'
 
 export const buildFull = (minify: boolean) => async () => {
   const bundle = await rollup({

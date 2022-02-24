@@ -1,4 +1,3 @@
-import path from 'path'
 import { defineConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // import svgLoader from 'vite-svg-loader'
@@ -6,8 +5,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   resolve: {
     alias: [
-    //   { find: '@devui', replacement: path.resolve(__dirname, '../devui') },
-    ]
+      //   { find: '@devui', replacement: path.resolve(__dirname, '../devui') },
+    ],
   },
   plugins: [
     vueJsx({}),

@@ -7,9 +7,8 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 
-
 const distFolder = path.resolve(__dirname, 'dist')
-const distBundle = path.resolve("../../dist/zyy-v3-ui", 'theme-chalk')
+const distBundle = path.resolve('../../dist/zyy-v3-ui', 'theme-chalk')
 
 /**
  * compile theme-chalk scss & minify

@@ -12,7 +12,7 @@ export async function alias(): Promise<Plugin> {
 
       const THEME_CHALK = `${EP_PREFIX}/theme-chalk`
       if (id.startsWith(THEME_CHALK)) {
-        const reg = new RegExp(THEME_CHALK, "g")
+        const reg = new RegExp(THEME_CHALK, 'g')
         return {
           id: id.replace(reg, `${EP_PKG}/theme-chalk`), // id.replaceAll(THEME_CHALK, `${EP_PKG}/theme-chalk`),
           external: 'absolute',
